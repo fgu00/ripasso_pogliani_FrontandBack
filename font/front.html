@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>esercizio pogliani</title>
+    </head>
+    <body>
+        id:   <input type="number" id="num">
+        nome: <input type="text" id="name">
+        <button id="btn">invia</button>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+      ></script>
+          <script>
+          $("#btn").click( function () {
+            var id = $("#num").val();
+            var nome = $("#name").val();
+              //prende i valori dagli input
+              $.ajax({
+                  url: 
+                  "http://localhost:3000/login?id="+id+"&name="+nome,
+                  method: "GET",
+                  success: function(data){
+                      console.log("ciao");
+                      $("#ctrl").append("OK RIUSCITO")
+                  },
+                  error: 
+                    function(data){
+                        console.log("ardo");
+                        $("#ctrl").append("NON RIUSCITO")
+                    }
+              })
+          } )
+          </script>
+    </body>
+</html>
